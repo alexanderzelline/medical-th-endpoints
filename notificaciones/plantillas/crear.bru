@@ -1,0 +1,26 @@
+meta {
+  name: Crear plantilla
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/api/v1/notificaciones/plantillas/
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+  X-CSRFToken: {{csrf_token}}
+}
+
+body:json {
+  {
+    "nombre": "Carta de bienvenida",
+    "asunto": "Bienvenido a Clínica Medical, {{nombres}}",
+    "cuerpo": "Estimado/a {{nombres}} {{apellidos}},\n\nBienvenido/a a nuestro equipo.",
+    "activa": true
+  }
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Reemplazar plantilla (completa)
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{base_url}}/api/v1/notificaciones/plantillas/1/
+  body: json
+  auth: none
+}
+
+headers {
+  Accept: application/json
+  Content-Type: application/json
+  X-CSRFToken: {{csrf_token}}
+}
+
+body:json {
+  {
+    "nombre": "Carta actualizada",
+    "asunto": "Estimado/a {{nombres}}",
+    "cuerpo": "Cuerpo completo del correo.",
+    "activa": true
+  }
+}
